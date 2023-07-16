@@ -1,5 +1,5 @@
 import MainMenu
+import customtkinter 
 
 mainmenu = MainMenu.Home()
-mainmenu.set_default_color_theme("green")
 mainmenu.mainloop()
