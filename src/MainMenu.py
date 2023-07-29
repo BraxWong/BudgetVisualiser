@@ -1,5 +1,6 @@
 import customtkinter
 import tkinter as tk
+import new_account
 from PIL import ImageTk, Image
 
 class Home(customtkinter.CTk):
@@ -18,11 +19,14 @@ class Home(customtkinter.CTk):
         start()
             Will create an extra window
             
+        newAccount()
+            Will create a pop up window to allow users to create a new account
+
     """
     def initialiseWidget(self):
         self.grid_columnconfigure(0, weight = 1)
         self.grid_rowconfigure((0,1), weight = 1)
-        customtkinter.set_default_color_theme("theme/DaynNight.json")
+        customtkinter.set_default_color_theme("../theme/DaynNight.json")
         self.geometry("500x200")
         self.title("Budget Visualiser")
         self.resizable(False,False)
@@ -30,7 +34,7 @@ class Home(customtkinter.CTk):
         titleLabel.grid(row = 1, column = 0, padx = 20, pady = 20)
         startButton = customtkinter.CTkButton(self, text = "Start", command = self.start)
         startButton.grid(row = 3, column = 0, padx = 20, pady = 20)
-        newAccountButton = customtkinter.CTkButton(self,text = "New Account", command = self.start)
+        newAccountButton = customtkinter.CTkButton(self,text = "New Account", command = self.newAccount)
         newAccountButton.grid(row = 2, column = 0, padx = 10, pady = 10)
     
     def __init__(self):
@@ -38,6 +42,9 @@ class Home(customtkinter.CTk):
         super().__init__() 
         self.initialiseWidget()
     
-    #TODO: think about how you want to implement this to smoothen the flow of the application
     def start(self):
         print("Hello World")
+
+    def newAccount(self):
+        newAC = new_account.NewAccount()
+        newAC.mainloop()
