@@ -26,10 +26,12 @@ class Home(customtkinter.CTk):
         self.geometry("500x200")
         self.title("Budget Visualiser")
         self.resizable(False,False)
-        titleLabel = customtkinter.CTkLabel(self,text="Budget Visualiser", font = ("American Typewriter",40))
+        titleLabel = customtkinter.CTkLabel(self,text="Budget Visualiser", font = ("American Typewriter",25))
         titleLabel.grid(row = 1, column = 0, padx = 20, pady = 20)
         startButton = customtkinter.CTkButton(self, text = "Start", command = self.start)
         startButton.grid(row = 3, column = 0, padx = 20, pady = 20)
+        newAccountButton = customtkinter.CTkButton(self,text = "New Account", command = self.start)
+        newAccountButton.grid(row = 2, column = 0, padx = 10, pady = 10)
     
     def __init__(self):
         #super().__init__ basically calls customtkinter.CTK's constructor
