@@ -1,5 +1,5 @@
 import os
-import error_message as EM
+import PopUpMessage as PM
 
 class Directory:
 
@@ -15,6 +15,5 @@ class Directory:
             try:
                 os.makedirs(directory_path)
             except OSError as error:
-                EM.showErrorPopUp("Error creating directory. Please check try again later") 
-
+                PopUp = PM.MessagePopUp("There is an error when creating" + directory_path + ", please try again later.")
 

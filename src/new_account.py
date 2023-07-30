@@ -1,6 +1,6 @@
 import customtkinter
 import directory as DIR
-
+import PopUpMessage as PM
 class NewAccount(customtkinter.CTkToplevel):
 
     def __init__(self):
@@ -17,6 +17,10 @@ class NewAccount(customtkinter.CTkToplevel):
             usernameTXT.close()
             passwordTXT.write(password)
             passwordTXT.close()
+        else:
+            PopUpWindow = PM.MessagePopUp("This account already exists within the system.")
+            PopUpWindow.mainloop()
+
 
     def accountExists(self, username):
         usernameTXT = open("../user_info/username.txt","r")
