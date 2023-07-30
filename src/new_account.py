@@ -1,6 +1,5 @@
 import customtkinter
 import directory as DIR
-import file as FILE
 
 class NewAccount(customtkinter.CTkToplevel):
 
