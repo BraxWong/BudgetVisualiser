@@ -1,6 +1,31 @@
 import customtkinter
+import directory as DIR
+import file as FILE
 
 class NewAccount(customtkinter.CTkToplevel):
+
+    def __init__(self):
+        super().__init__()
+        self.initialiseWidget()
+
+    def createAccount(self, username, password):
+        directory = DIR.Directory()
+        directory.create_directory("../user_info")
+        usernameTXT = open("../user_info/username.txt", "a")
+        passwordTXT = open("../user_info/password.txt", "a")
+        if not self.accountExists(username):    
+            usernameTXT.write(username)
+            usernameTXT.close()
+            passwordTXT.write(password)
+            passwordTXT.close()
+
+    def accountExists(self, username):
+        usernameTXT = open("../user_info/username.txt","r")
+        for x in usernameTXT:
+            if x == username:
+                usernameTXT.close()
+                return True
+        return False       
 
     def initialiseWidget(self):
         self.grid_columnconfigure(0, weight = 1)
@@ -16,15 +41,3 @@ class NewAccount(customtkinter.CTkToplevel):
         password.grid(row = 2, column = 0, padx = 20, pady = 20)
         submit = customtkinter.CTkButton(self, text = "Create Accout", command = lambda: self.createAccount(username.get("0.0","end"),password.get("0.0","end"))) 
         submit.grid(row = 3, column = 0, padx = 20, pady = 20)
-
-    def __init__(self):
-        super().__init__()
-        self.initialiseWidget()
-
-    def createAccount(self, username, password):
-        print(username)
-        print(password)
-
-    def accountExists():
-        return True
-        
