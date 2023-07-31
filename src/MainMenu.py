@@ -4,6 +4,7 @@ import new_account
 from PIL import ImageTk, Image
 
 class Home(customtkinter.CTk):
+
     """
         A class used to create the home window
 
@@ -21,8 +22,8 @@ class Home(customtkinter.CTk):
             
         newAccount()
             Will create a pop up window to allow users to create a new account
-
     """
+
     def initialiseWidget(self):
         self.grid_columnconfigure(0, weight = 1)
         self.grid_rowconfigure((0,1), weight = 1)
@@ -32,7 +33,7 @@ class Home(customtkinter.CTk):
         self.resizable(False,False)
         titleLabel = customtkinter.CTkLabel(self,text="Budget Visualiser", font = ("American Typewriter",25))
         titleLabel.grid(row = 1, column = 0, padx = 20, pady = 20)
-        startButton = customtkinter.CTkButton(self, text = "Start", command = self.start)
+        startButton = customtkinter.CTkButton(self, text = "Log In", command = self.start)
         startButton.grid(row = 3, column = 0, padx = 20, pady = 20)
         newAccountButton = customtkinter.CTkButton(self,text = "New Account", command = self.newAccount)
         newAccountButton.grid(row = 2, column = 0, padx = 10, pady = 10)
