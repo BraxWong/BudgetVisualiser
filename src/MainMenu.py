@@ -1,6 +1,7 @@
 import customtkinter
 import tkinter as tk
 import new_account
+import Login as LG
 from PIL import ImageTk, Image
 
 class Home(customtkinter.CTk):
@@ -33,7 +34,7 @@ class Home(customtkinter.CTk):
         self.resizable(False,False)
         titleLabel = customtkinter.CTkLabel(self,text="Budget Visualiser", font = ("American Typewriter",25))
         titleLabel.grid(row = 1, column = 0, padx = 20, pady = 20)
-        startButton = customtkinter.CTkButton(self, text = "Log In", command = self.start)
+        startButton = customtkinter.CTkButton(self, text = "Log In", command = self.Login)
         startButton.grid(row = 3, column = 0, padx = 20, pady = 20)
         newAccountButton = customtkinter.CTkButton(self,text = "New Account", command = self.newAccount)
         newAccountButton.grid(row = 2, column = 0, padx = 10, pady = 10)
@@ -43,8 +44,9 @@ class Home(customtkinter.CTk):
         super().__init__() 
         self.initialiseWidget()
     
-    def start(self):
-        print("Hello World")
+    def Login(self):
+        LoginDetails = LG.Login()
+        LoginDetails.mainloop()
 
     def newAccount(self):
         newAC = new_account.NewAccount()

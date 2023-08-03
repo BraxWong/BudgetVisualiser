@@ -31,11 +31,11 @@ class NewAccount(customtkinter.CTkToplevel):
             within the system (file)
     """
 
-    def __init__(self):
+     def __init__(self):
         super().__init__()
         self.initialiseWidget()
 
-    def createAccount(self, username, password):
+     def createAccount(self, username, password):
         directory = DIR.Directory()
         directory.create_directory("../user_info")
         usernameTXT = open("../user_info/username.txt", "a")
@@ -49,7 +49,7 @@ class NewAccount(customtkinter.CTkToplevel):
         else:
             messagebox.showinfo("PopUp","Error. Account already exists within the system.")
 
-    def accountExists(self, username):
+     def accountExists(self, username):
         usernameTXT = open("../user_info/username.txt","r")
         for x in usernameTXT:
             if x == username:
@@ -57,7 +57,7 @@ class NewAccount(customtkinter.CTkToplevel):
                 return True
         return False       
 
-    def initialiseWidget(self):
+     def initialiseWidget(self):
         self.grid_columnconfigure(0, weight = 1)
         self.grid_rowconfigure((0,1), weight = 1)
         self.resizable(False,False)
