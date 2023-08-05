@@ -1,12 +1,14 @@
 import customtkinter
 import tkinter as tk
-import new_account as NA
 from tkinter import messagebox
+import User_Info as UI
+
 class Login(customtkinter.CTk):
 
     def __init__(self):
         self.username = "Something"
         self.password = "Something"
+        self.ui = UI.user_info()
         super().__init__()
         self.initialiseWidget()
 
@@ -31,28 +33,5 @@ class Login(customtkinter.CTk):
     def login(self, username, password):
         self.username = username 
         self.password = password 
-        if self.AccountVerification(self.username, self.password):
-            print("Success")
-        else:
-            messagebox.showinfo("PopUp", "The username or password you have provided is not correct. Please try again.")
+        self.ui.login(self.username, self.password)
 
-    def AccountVerification(self, username, password):
-        print(username)
-        print(password)
-        LoginDetails = NA.NewAccount()
-        if LoginDetails.accountExists(username):
-            usernameTXT = open("../user_info/username.txt", "r")
-            passwordTXT = open("../user_info/password.txt", "r")
-            usernameIndex = 0
-            passwordIndex = 0
-            for x in usernameTXT:
-                if x == username:
-                    break
-                ++unsernameIndex
-            for y in passwordTXT:
-                if y == password and passwordIndex == usernameIndex:
-                    return True
-                ++passwordIndex
-        else:
-            return False
-        return True
