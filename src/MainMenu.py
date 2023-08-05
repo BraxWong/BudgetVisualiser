@@ -42,12 +42,18 @@ class Home(customtkinter.CTk):
     def __init__(self):
         #super().__init__ basically calls customtkinter.CTK's constructor
         super().__init__() 
+        self.LoginWindowOpened = False
+        self.NewAccountWindowOpened = False
         self.initialiseWidget()
     
     def Login(self):
-        LoginDetails = LG.Login()
-        LoginDetails.mainloop()
+        if not self.LoginWindowOpened and not self.NewAccountWindowOpened:
+            self.LoginWindowOpened = True
+            LoginDetails = LG.Login()
+            LoginDetails.mainloop()
 
     def newAccount(self):
-        newAC = new_account.NewAccount()
-        newAC.mainloop()
+        if not self.NewAccountWindowOpened and not self.LoginWindowOpened:
+            self.NewAccountWindowOpened = True
+            newAC = new_account.NewAccount()
+            newAC.mainloop()
